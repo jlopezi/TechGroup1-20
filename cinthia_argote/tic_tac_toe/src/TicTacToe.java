@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -22,12 +23,13 @@ public class TicTacToe {
   }
 
   public void playGame() {
-    System.out.println(" X will play first. Enter a slot number to place X in:");
+    System.out.println("X will play first. Enter a slot number to place X in:");
+    System.out.println("O will play second.");
     board.printBoard();
-    Scanner scanner = new Scanner(System.in);
-    try {
-      while(!board.isCompleteBoard()) {
-        int slotNumber = scanner.nextInt();
+    Scanner input = new Scanner(System.in);
+    while(!board.isCompleteBoard()){
+      try {
+        int slotNumber = input.nextInt();
         char value = Integer.toString(slotNumber).charAt(0);
         if(!board.isMarked(value)) {
           if(validateValue(slotNumber)) {
@@ -38,7 +40,7 @@ public class TicTacToe {
               board.markBoard(value, player2.card);
               player2.setAttempts(player2.attempts-1);
             }
-              board.printBoard();
+            board.printBoard();
           }
         } else {
           System.out.println("Slot already taken");
@@ -46,12 +48,18 @@ public class TicTacToe {
         winner = board.isWinner();
         if(winner) {
           System.out.println("Congratulations! - you're the winner");
-          scanner.close();
+          input.close();
           break;
         }
+      } catch (InputMismatchException e){
+        String badInput = input.next();
+        System.out.println("Please, just enter the slot numbers" + badInput);
+        continue;
       }
-    } catch (Exception e) {
-      System.out.println("Please, just enter the slot numbers");
+    }
+
+    if(!winner && board.isCompleteBoard()) {
+      System.out.println("It's a tie !!");
     }
   }
 }
