@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+    id 'pmd'
+    id 'checkstyle'
+}
+
+// Pmd configuration
+pmd {
+    ruleSets = ["java-basic", "java-braces", "java-unnecessary", "java-unusedcode"]
+    toolVersion = '6.0.0'
+}
+
+// Checkstyle configuration
+checkstyle {
+    toolVersion = '8.11'
+}
+
+repositories {
+    jcenter()
+}
