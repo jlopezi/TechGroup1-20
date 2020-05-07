@@ -58,10 +58,10 @@ public class Game {
                 strAvailableSpots += availableSpot + ",";
             }
             strAvailableSpots += "]";
-            System.out.println("Available positions: " + strAvailableSpots);
+            System.out.println("Available Positions: " + strAvailableSpots);
 
             String strPosition;
-            System.out.print("Position? ");
+            System.out.print("Position? (Only numeric values from Available Positions are allowed) ");
             strPosition = scanner.next();
             position = tryParse(strPosition);
 
@@ -75,7 +75,7 @@ public class Game {
             System.out.println("Player " + currentPlayerName + " (" + currentPlayerMark + ") wins! :)");
             finished = true;
         }
-        if (availableSpots.size() == 0){
+        if (!winnerExists && (availableSpots.size() == 0)){
             System.out.println("Ends in draw :(");
             finished = true;
         }
@@ -84,6 +84,7 @@ public class Game {
 
     private void render(){
         availableSpots = new ArrayList<>();
+        System.out.println();
         for (int i = 1; i <= Math.pow(length, 2); i++) {
             Spot currentSpot = spotsMap.get(i);
             if (currentSpot.getValue() != '\0')
