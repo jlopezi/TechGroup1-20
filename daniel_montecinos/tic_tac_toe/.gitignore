@@ -2,8 +2,8 @@
 .idea/
 build
 out/
-config/
-gradle/
+config/*
+gradle/*
 build.gradle
 gradlew.bat
 gradlew
