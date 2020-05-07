@@ -119,8 +119,8 @@ public class Game {
         ArrayList<Spot> currentCol = new ArrayList<Spot>();
         for (int j = 0; j < cols; j++) {
             for (int i = 0; i < rows; i++) {
-                if (spots[j][i].getValue() != '\0')
-                    currentCol.add(spots[j][i]);
+                if (spots[i][j].getValue() != '\0')
+                    currentCol.add(spots[i][j]);
             }
             if (currentCol.size() == length)
                 if (allItemsAreEqual(currentCol))
