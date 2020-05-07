@@ -23,7 +23,7 @@ public class Reader {
     public Point getPoint(Player player) {
         try {
             System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT +
-                    "it's time to for player # " + player.getColor() +"("+ player.getPlayerNumber() +") " +player.getName());
+                    "it's time to for player # " + player.getColor() + "(" + player.getPlayerNumber() + ") " + player.getName());
             System.out.print(ConsoleColors.RESET);
             System.out.print("coordinate X:Y : " + player.getColor());
             String coordinate = br.readLine();
@@ -39,7 +39,7 @@ public class Reader {
 
     public void printWinner(Player p) {
         System.out.println(p.getColor() +
-                "The Winner " + p.getName() + "("+p.getPlayerNumber()+") !!!!!!!!!!!!!");
+                "The Winner " + p.getName() + "(" + p.getPlayerNumber() + ") !!!!!!!!!!!!!");
     }
 
     public boolean restart() {
@@ -47,7 +47,7 @@ public class Reader {
             System.out.print(ConsoleColors.RESET);
             System.out.println("to start a new game press any key, to exit press x");
             String characters = br.readLine();
-            if(characters != null && characters.toUpperCase() == "X"){
+            if (characters != null && characters.toUpperCase() == "X") {
                 System.exit(0);
                 return false;
             }

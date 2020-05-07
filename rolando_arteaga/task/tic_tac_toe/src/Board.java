@@ -58,7 +58,7 @@ public class Board {
         values.put(p1.getPlayerNumber(), p1.getColor());
         values.put(p2.getPlayerNumber(), p2.getColor());
         System.out.println(ConsoleColors.PURPLE);
-        System.out.println("    1     2     3   "+ConsoleColors.YELLOW);
+        System.out.println("    1     2     3   " + ConsoleColors.YELLOW);
         System.out.println("       |     |      ");
         System.out.print(ConsoleColors.PURPLE);
         System.out.println("1   " + getValue(0, 0, values) + "  |  " + getValue(1, 0, values) + "  |  " + getValue(2, 0, values) + "   ");

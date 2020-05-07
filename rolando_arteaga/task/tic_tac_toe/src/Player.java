@@ -1,7 +1,7 @@
 public class Player {
+    private final String playerNumber;
     private String name;
     private String color;
-    private final String playerNumber;
 
     public Player(String playerNumber, String color) {
         this.color = color;

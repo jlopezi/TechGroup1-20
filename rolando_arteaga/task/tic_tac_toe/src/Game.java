@@ -1,8 +1,8 @@
 public class Game {
     private final Reader console;
-    private Board boardGame;
     private final Player playerBlue;
     private final Player playerGreen;
+    private Board boardGame;
 
     public Game(Player playerBlue, Player playerGreen) {
         this.console = new Reader();
@@ -34,10 +34,10 @@ public class Game {
             boardGame.paintBoard(playerBlue, playerGreen);
         }
         String winner = boardGame.hasWinner();
-        if(winner != null) {
-            console.printWinner(winner == playerBlue.getPlayerNumber() ? playerBlue : playerGreen );
+        if (winner != null) {
+            console.printWinner(winner == playerBlue.getPlayerNumber() ? playerBlue : playerGreen);
         }
-        if(console.restart()) {
+        if (console.restart()) {
             this.startGame();
         }
     }
