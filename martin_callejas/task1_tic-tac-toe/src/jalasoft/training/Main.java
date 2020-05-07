@@ -3,6 +3,9 @@ package jalasoft.training;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello dude");
+        Game ticTacToe = new Game();
+        while (!ticTacToe.finished) {
+            ticTacToe.play();
+        };
     }
 }
