@@ -59,8 +59,12 @@ public class Game {
             }
             strAvailableSpots += "]";
             System.out.println("Available positions: " + strAvailableSpots);
+
+            String strPosition;
             System.out.print("Position? ");
-            position = scanner.nextInt();
+            strPosition = scanner.next();
+            position = tryParse(strPosition);
+
         } while (!availableSpots.contains(position));
 
         setValue(position, currentPlayerMark);
@@ -154,5 +158,14 @@ public class Game {
             if (spot.getValue() != line.get(0).getValue()) return false;
         }
         return true;
+    }
+
+    public int tryParse(String value){
+        int defaultValue = - 1;
+        try {
+            return Integer.parseInt(value);
+        }catch (NumberFormatException e) {
+            return defaultValue;
+        }
     }
 }
