@@ -1,2 +1,3 @@
-# Idea IDE
+# Idea IDE related files
 .idea
+*.iml
