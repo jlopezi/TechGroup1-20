@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -12,6 +13,7 @@ public class Game {
     private char[][] grid;
     private static int COLUMN = 3;
     private static int ROW = 3;
+    private Scanner scanner;
 
     /**
      * Game constructor
@@ -19,6 +21,7 @@ public class Game {
     public Game() {
         grid = new char[COLUMN][ROW];
         character = 'x';
+        scanner = new Scanner(System.in);
         initBoard();
     }
 
@@ -146,13 +149,13 @@ public class Game {
      * Starts game
      */
     public void playGame() {
-        Scanner option = new Scanner(System.in);
+
         int value;
         for (int turn = 1; turn <= 9; turn++) {
             printBoard();
             do {
-                System.out.println("Is the turn of: " + character + ", select an option between 1-9");
-                value = option.nextInt();
+                System.out.println("Is the turn of: " + character + ", select an option between 1-9:");
+                value = validatePositionValue();
             } while (!getPosition(value));
             nextTurn();
             if (checkGameWinner()) {
@@ -160,6 +163,21 @@ public class Game {
                 break;
             } else {
                 System.out.println("It is a tie!!!");
+            }
+        }
+    }
+
+    /**
+     * Verifies value introduces by scanner.
+     * @return valid value introduced.
+     */
+    private int validatePositionValue() {
+        while (true) {
+            try {
+                return scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.print("That's not a valid number. Please try again: ");
+                scanner.next();
             }
         }
     }
