@@ -1,11 +1,15 @@
+/*
+ * Copyright (c) 2020. Jalasoft
+ */
+
 package tictactoe;
 
 /**
  * Class that manage the Player stuffs.
  */
 public class Player {
-    public String nickname;
-    public String symbol;
+    private String nickname;
+    private String symbol;
 
     /**
      * Constructor that initializes values
