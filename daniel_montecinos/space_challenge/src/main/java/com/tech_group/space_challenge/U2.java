@@ -29,7 +29,7 @@ public class U2 extends Rocket {
     @Override
     public boolean launch() {
         changeToSurviveExplosion = new Random().nextDouble();
-        return changeToSurviveExplosion > 0.05 * (super.getWeight() / MAX_WEIGHT);
+        return changeToSurviveExplosion > 0.04 * (super.getWeight() / MAX_WEIGHT);
     }
 
     /**
@@ -38,6 +38,6 @@ public class U2 extends Rocket {
     @Override
     public boolean land() {
         changeToSurviveExplosion = new Random().nextDouble();
-        return changeToSurviveExplosion > 0.01 * (super.getWeight() / MAX_WEIGHT);
+        return changeToSurviveExplosion > 0.08 * (super.getWeight() / MAX_WEIGHT);
     }
 }
