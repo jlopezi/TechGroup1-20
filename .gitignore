@@ -28,3 +28,12 @@ build
 out/
 *.iml
 *.xml
+=======
+# ignore iml files
+*.iml
+
+# ignore .idea folder and files
+.idea/
+
+# ignore files in out/ folder
+out/
