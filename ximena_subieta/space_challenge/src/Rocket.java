@@ -3,12 +3,12 @@
  */
 public class Rocket implements SpaceShip {
 
-    int cost;
-    int weight;
-    int maxWeight;
-    double launchExplosion;
-    double landingCrash;
-    int currentWeight;
+    protected int cost;
+    protected int weight;
+    protected int maxWeight;
+    protected double launchExplosion;
+    protected double landingCrash;
+    protected int currentWeight;
 
     public boolean launch() {
         return true;
