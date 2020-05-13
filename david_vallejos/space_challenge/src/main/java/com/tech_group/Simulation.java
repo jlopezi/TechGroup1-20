@@ -54,7 +54,12 @@ public class Simulation {
                 rocket.carry(item);
             } else {
                 rocketList.add(rocket);
-                rocket = new U1();
+                if (rocket.getClass() == U1.class) {
+                    rocket = new U1();
+                } else {
+                    rocket = new U2();
+                }
+//                rocket = rocket.getClass() == U1.class ? new U1() : new U2;
                 rocket.carry(item);
             }
         }

@@ -21,30 +21,50 @@ public class Rocket implements SpaceShip{
         this.maxWeight = maxWeight;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean launch() {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean land() {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean canCarry(Item item) {
         return weight + item.getWeight() <= maxWeight;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void carry(Item item) {
         weight += item.getWeight();
     }
 
+    /**
+     * Gets rocket cost as int.
+     * @return cost value.
+     */
     public int getCost() {
         return cost;
     }
 
+    /**
+     * Sets cost value.
+     * @param cost value to replace.
+     */
     public void setCost(int cost) {
         this.cost = cost;
     }
