@@ -7,41 +7,26 @@ package main.java;
  * @version 0.0.1
  */
 public class ApoloU2 extends Rocket {
-    private static final int COST = 120;
-    private static final int MAX_WEIGHT = 29;
-    private double chanceOfLandingCrash = 0.08;
-    private double chanceOfLaunchExplosion = 0.04;
-    private static int weight = 18;
 
     public ApoloU2() {
-        super(COST, MAX_WEIGHT, weight);
+        super(120,29,18);
     }
 
     /**
      * Lands method calculate corresponding chance of exploding.
-     * @return true if we going well on the land, otherwise false.
+     * @return false if we going well on the land, otherwise true.
      */
     @Override
     public boolean land() {
-        return Math.random() > (chanceOfLandingCrash
-                * ((double)super.getWeight()/(double) MAX_WEIGHT));
+        return isExplosion(0.08, Math.random());
     }
 
     /**
      * Launches method calculate corresponding chance of exploding.
-     * @return true if we going well on the launch, otherwise false.
+     * @return false if we going well on the launch, otherwise true.
      */
     @Override
     public boolean launch() {
-        return Math.random() > (chanceOfLaunchExplosion
-                * ((double)super.getWeight()/(double) MAX_WEIGHT));
-    }
-
-    public void setChanceOfLandingCrash(double chanceOfLandingCrash) {
-        this.chanceOfLandingCrash = chanceOfLandingCrash;
-    }
-
-    public void setChanceOfLaunchExplosion(double chanceOfLaunchExplosion) {
-        this.chanceOfLaunchExplosion = chanceOfLaunchExplosion;
+        return isExplosion(0.04, Math.random());
     }
 }

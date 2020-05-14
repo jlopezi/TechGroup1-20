@@ -1,5 +1,7 @@
 package main.java;
 
+import java.util.Random;
+
 /**
  * main.java.Rocket class.
  *
@@ -7,9 +9,9 @@ package main.java;
  * @version 0.0.1
  */
 public class Rocket implements SpaceShip {
-    private int cost;
-    private int maxWeight;
-    private int weight;
+    protected int cost;
+    protected int maxWeight;
+    protected int weight;
 
     public Rocket(int cost, int maxWeight, int weight) {
         this.cost = cost;
@@ -29,6 +31,7 @@ public class Rocket implements SpaceShip {
 
     @Override
     public final boolean canCarry(Item item) {
+
         return (this.weight + item.getWeight()) <= maxWeight;
     }
 
@@ -39,15 +42,18 @@ public class Rocket implements SpaceShip {
         }
     }
 
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public int getCost() {
-        return cost;
+    /**
+     * Is explosion method use the probability equation,
+     * to know whether a explosion occur.
+     * @param percent help us to calculate 'Number of Favorable Outcome'.
+     * @param totalNumberOfFavorable is a variable to calculate the Probability.
+     * @return true if we going well on the land, otherwise false.
+     */
+    protected boolean isExplosion(double percent, double totalNumberOfFavorable) {
+        //Probability = Number of Favorable Outcome / Total Number of Favorable outcomes
+        //Number of Favorable Outcome = percent * (cargo carried / cargo limit)
+        double numberOfFavorableOutcome = percent * ((double)weight
+                                                    / (double)maxWeight);
+        return (numberOfFavorableOutcome / totalNumberOfFavorable) >= 1.0;
     }
 }
