@@ -157,13 +157,14 @@ public class Game {
                 System.out.println("Is the turn of: " + character + ", select an option between 1-9:");
                 value = validatePositionValue();
             } while (!getPosition(value));
-            nextTurn();
+
             if (checkGameWinner()) {
                 System.out.println("Winner is: " + character);
                 break;
             } else {
                 System.out.println("It is a tie!!!");
             }
+            nextTurn();
         }
     }
 
