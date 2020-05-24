@@ -9,10 +9,8 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        final String phaseOnePath =
-                "daniel_montecinos/space_challenge/src/main/java/com/tech_group/resources/phase-1.txt";
-        final String phaseTwoPath =
-                "daniel_montecinos/space_challenge/src/main/java/com/tech_group/resources/phase-2.txt";
+        final String phaseOnePath = "daniel_montecinos/src/main/resources/phase-1.txt";
+        final String phaseTwoPath = "daniel_montecinos/src/main/resources/phase-2.txt";
         final NumberFormat format = NumberFormat.getCurrencyInstance();
         List<Item> items;
         List<Rocket> rockets;
