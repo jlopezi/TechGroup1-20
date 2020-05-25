@@ -82,9 +82,9 @@ public class Board {
      * @return true if three symbols were completed in a row, false otherwise.
      */
     public boolean areThreeSymbolsCompletedInARow() {
-        String top = dimension[0][0] + dimension[0][1] + dimension[0][2].replaceAll(PIPE, EMPTY_SPACE);
-        String middle = dimension[1][0] + dimension[1][1] + dimension[1][2].replaceAll(PIPE, EMPTY_SPACE);
-        String bottom = dimension[2][0] + dimension[2][1] + dimension[2][2].replaceAll(PIPE, EMPTY_SPACE);
+        String top = (dimension[0][0] + dimension[0][1] + dimension[0][2]).replaceAll(PIPE, EMPTY_SPACE);
+        String middle = (dimension[1][0] + dimension[1][1] + dimension[1][2]).replaceAll(PIPE, EMPTY_SPACE);
+        String bottom = (dimension[2][0] + dimension[2][1] + dimension[2][2]).replaceAll(PIPE, EMPTY_SPACE);
         return top.matches(X_OR_O) || middle.matches(X_OR_O) || bottom.matches(X_OR_O);
     }
 
@@ -94,9 +94,9 @@ public class Board {
      * @return true if three symbols were completed in a column, false otherwise.
      */
     public boolean areThreeSymbolsCompletedInAColumn() {
-        String left = dimension[0][0] + dimension[1][0] + dimension[2][0].replaceAll(PIPE, EMPTY_SPACE);
-        String center = dimension[0][1] + dimension[1][1] + dimension[2][1].replaceAll(PIPE, EMPTY_SPACE);
-        String right = dimension[0][2] + dimension[1][2] + dimension[2][2].replaceAll(PIPE, EMPTY_SPACE);
+        String left = (dimension[0][0] + dimension[1][0] + dimension[2][0]).replaceAll(PIPE, EMPTY_SPACE);
+        String center = (dimension[0][1] + dimension[1][1] + dimension[2][1]).replaceAll(PIPE, EMPTY_SPACE);
+        String right = (dimension[0][2] + dimension[1][2] + dimension[2][2]).replaceAll(PIPE, EMPTY_SPACE);
         return left.matches(X_OR_O) || center.matches(X_OR_O) || right.matches(X_OR_O);
     }
 
@@ -106,8 +106,16 @@ public class Board {
      * @return true if three symbols were completed in a diagonal, false otherwise.
      */
     public boolean areThreeSymbolsCompletedInADiagonal() {
-        String diagonal = dimension[0][0] + dimension[1][1] + dimension[2][2].replaceAll(PIPE, EMPTY_SPACE);
+        String diagonal = (dimension[0][0] + dimension[1][1] + dimension[2][2]).replaceAll(PIPE, EMPTY_SPACE);
         return diagonal.matches(X_OR_O);
+    }
+
+    /**
+     * Gets tic tac toe board.
+     * @return tic tac toe board.
+     */
+    public String[][] getDimension() {
+        return dimension;
     }
 
     /**
