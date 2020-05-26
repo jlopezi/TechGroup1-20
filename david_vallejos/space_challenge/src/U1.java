@@ -1,19 +1,17 @@
-package main.java.com.tech_group;
-
 /**
- * Class to represent U2 rocket object.
+ * Class to represent U1 rocket object.
  */
-public class U2 extends Rocket {
+public class U1 extends Rocket{
 
-    private final static int COST = 120;
+    private final static int COST = 100;
     // Each line in the file contains the item name as well as its WEIGHT in Kgs. 10 Tonnes = 10000 Kgs
-    private final static double WEIGHT = 18000;
-    private final static double MAX_WEIGHT = 29000;
+    private final static double WEIGHT = 10000;
+    private final static double MAX_WEIGHT = 18000;
 
     /**
      * U1 rocket constructor.
      */
-    public U2() {
+    public U1() {
         super(COST, WEIGHT, MAX_WEIGHT);
     }
 
@@ -23,7 +21,7 @@ public class U2 extends Rocket {
     @Override
     public boolean launch(){
         double random = Math.random();
-        return random > (0.04 * (WEIGHT / MAX_WEIGHT));
+        return (0.05 * (WEIGHT / MAX_WEIGHT)) < random;
     }
 
     /**
@@ -32,6 +30,6 @@ public class U2 extends Rocket {
     @Override
     public boolean land(){
         double random = Math.random();
-        return random > (0.08 * (WEIGHT / MAX_WEIGHT));
+        return (0.01 * (WEIGHT / MAX_WEIGHT)) < random;
     }
 }

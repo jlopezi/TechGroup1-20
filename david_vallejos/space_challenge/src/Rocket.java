@@ -1,5 +1,3 @@
-package main.java.com.tech_group;
-
 /**
  * Class to represent Rocket object.
  */

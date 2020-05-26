@@ -1,5 +1,3 @@
-package main.java.com.tech_group;
-
 /**
  * Class that represent item to carry into a rocket.
  */

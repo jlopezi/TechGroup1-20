@@ -1,5 +1,3 @@
-package main.java.com.tech_group;
-
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;

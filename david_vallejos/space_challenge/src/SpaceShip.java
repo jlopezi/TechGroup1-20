@@ -1,5 +1,3 @@
-package main.java.com.tech_group;
-
 /**
  * Interface that rocket classes will implement.
  */

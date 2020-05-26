@@ -1,5 +1,5 @@
-package main.java.com.tech_group;
-
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
@@ -10,8 +10,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        final String filePathPhase1 = "F:\\SDF\\TechGroup1-20\\david_vallejos\\space_challenge\\src\\Phase-1.txt";
-        final String filePathPhase2 = "F:\\SDF\\TechGroup1-20\\david_vallejos\\space_challenge\\src\\Phase-2.txt";
+        String phase1Path="Phase-1.txt";
+        String phase2Path="Phase-2.txt";
+
+        System.out.println(Paths.get(phase1Path).toAbsolutePath().toString());
+        System.out.println(Paths.get(phase2Path).toAbsolutePath().toString());
+
+        final String filePathPhase1 = Paths.get(phase1Path).toAbsolutePath().toString();
+        final String filePathPhase2 = Paths.get(phase2Path).toAbsolutePath().toString();
         final NumberFormat format = NumberFormat.getCurrencyInstance();
         Simulation firstSimulation = new Simulation();
 
