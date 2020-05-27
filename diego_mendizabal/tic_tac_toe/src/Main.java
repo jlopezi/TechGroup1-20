@@ -174,23 +174,25 @@ public class Main {
     public static boolean evaluator(char board[][]) {
         if (board[0][0] == board [0][2] && board[0][2] == board[0][4] && board[0][4] != ' ' && board[0][4] != '-'){
             return true;
-         } else if(board[2][0] == board [2][2] && board[2][2] == board[2][4] && board[2][4] != ' ' && board[2][4] != '-'){
+        } else if(board[2][0] == board [2][2] && board[2][2] == board[2][4] && board[2][4] != ' ' && board[2][4] != '-'){
             return true;
-         } else if(board[4][0] == board [4][2] && board[4][2] == board[4][4] && board[4][4] != ' ' && board[4][4] != '-'){
+        } else if(board[4][0] == board [4][2] && board[4][2] == board[4][4] && board[4][4] != ' ' && board[4][4] != '-'){
             return true;
-         } else if(board[0][0] == board [2][0] && board[4][2] == board[4][0] && board[4][0] != ' ' && board[4][0] != '-'){
+        } else if(board[0][0] == board [2][0] && board[4][2] == board[4][0] && board[4][0] != ' ' && board[4][0] != '-'){
             return true;
-         } else if(board[0][2] == board [2][2] && board[2][2] == board[4][2] && board[4][2] != ' ' && board[4][2] != '-'){
+        } else if(board[0][0] == board [2][0] && board[2][0] == board[4][0] && board[4][0] != ' ' && board[4][0] != '-'){
             return true;
-         } else if(board[0][4] == board [2][4] && board[2][4] == board[4][4] && board[4][4] != ' ' && board[4][4] != '-'){
+        } else if(board[0][2] == board [2][2] && board[2][2] == board[4][2] && board[4][2] != ' ' && board[4][2] != '-'){
             return true;
-         } else if(board[0][0] == board [2][2] && board[2][2] == board[4][4] && board[4][4] != ' ' && board[4][4] != '-'){
+        } else if(board[0][4] == board [2][4] && board[2][4] == board[4][4] && board[4][4] != ' ' && board[4][4] != '-'){
             return true;
-         } else if(board[0][4] == board [2][2] && board[2][2] == board[4][0] && board[4][0] != ' ' && board[4][0] != '-'){
+        } else if(board[0][0] == board [2][2] && board[2][2] == board[4][4] && board[4][4] != ' ' && board[4][4] != '-'){
             return true;
-         }
+        } else if(board[0][4] == board [2][2] && board[2][2] == board[4][0] && board[4][0] != ' ' && board[4][0] != '-'){
+            return true;
+        }
 
-         return false;
+        return false;
     }
 
     // Manages the game.
