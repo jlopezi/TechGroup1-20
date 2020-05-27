@@ -1,8 +1,13 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Checker {
-    private List<IRule> rules;
-    private GameStatus game;
+    public List<IRule> rules;
+    public GameStatus game;
+
+    public Checker(){
+        rules = new ArrayList<IRule>();
+    }
 
     public void addRule(IRule rule) {
         rules.add(rule);

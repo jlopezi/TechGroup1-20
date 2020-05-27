@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 public class TicTacToe {
     public static void main(String[] args) throws IOException {
         BufferedReader reader;
+
         reader = new BufferedReader(new InputStreamReader(System.in));
         Board board = new Board();
         Player player1 = new Player("Player1", "O");
@@ -31,6 +32,7 @@ public class TicTacToe {
     private static void play(Board board, Player currentPlayer, BufferedReader reader) throws IOException {
         System.out.println(currentPlayer.getName() + " it's your turn!");
         System.out.println("Add coordinate: x,y");
+        System.out.print("coordinate X: ");
         System.out.print("coordinate X: ");
         int coordinateX = Integer.parseInt(reader.readLine());
         System.out.print("coordinate Y: ");

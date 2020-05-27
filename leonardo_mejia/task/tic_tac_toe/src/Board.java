@@ -20,7 +20,7 @@ public class Board {
     }
 
     public void AddPoint(int coordinateX, int coordinateY, String symbolPlayer) {
-        if (board[coordinateX][coordinateY].isEmpty()) {
+        if (board[coordinateX][coordinateY] == null) {
             board[coordinateX][coordinateY] = symbolPlayer;
         }
     }
