@@ -151,6 +151,7 @@ public class Game {
     public void playGame() {
 
         int value;
+        boolean noWinner = false;
         for (int turn = 1; turn <= 9; turn++) {
             printBoard();
             do {
@@ -160,11 +161,13 @@ public class Game {
 
             if (checkGameWinner()) {
                 System.out.println("Winner is: " + character);
+                noWinner = true;
                 break;
-            } else {
-                System.out.println("It is a tie!!!");
             }
             nextTurn();
+        }
+        if (!noWinner){
+            System.out.println("It is a tie!!!");
         }
     }
 
