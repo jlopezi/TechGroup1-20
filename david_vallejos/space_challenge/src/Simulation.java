@@ -54,15 +54,20 @@ public class Simulation {
                 rocket.carry(item);
             } else {
                 rocketList.add(rocket);
-                if (rocket.getClass() == U1.class) {
-                    rocket = new U1();
-                } else {
-                    rocket = new U2();
-                }
+                rocket = createRocket(rocket);
                 rocket.carry(item);
             }
         }
         return rocketList;
+    }
+
+    /**
+     * Creates rocket U1 or U2 object.
+     * @param rocket represent the class of rocket.
+     * @return rocket depends of class sent.
+     */
+    private static Rocket createRocket(Rocket rocket) {
+        return rocket.getClass() == U1.class ? new U1() : new U2();
     }
 
     /**
