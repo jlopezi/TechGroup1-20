@@ -109,4 +109,15 @@ public class TicTacToe {
         return (checkRows() || checkCols() || checkDiagonals());
     }
 
+    public void setCurrentPlayer(char actualPlayer){
+        this.currentPlayer = actualPlayer;
+    }
+
+    public char[][] getTable() {
+        return this.table;
+    }
+
+    public void setTable(char[][] actualTable){
+        this.table = actualTable;
+    }
 }
