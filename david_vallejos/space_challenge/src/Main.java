@@ -29,7 +29,7 @@ public class Main {
         System.out.println(String.format("Phase 1 for U2 rockets will cost: %s",format.format(u2Phase1TocalCost)));
 
 
-        List<Item> itemsPhase2 = firstSimulation.loadItems(phase1Path);
+        List<Item> itemsPhase2 = firstSimulation.loadItems(phase2Path);
 
         List<Rocket> u1Phase2Rockets = firstSimulation.loadU1(itemsPhase2);
         int u1Phase2TocalCost = firstSimulation.runSimulator(u1Phase1Rockets);
