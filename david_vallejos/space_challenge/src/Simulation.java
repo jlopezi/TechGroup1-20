@@ -1,8 +1,10 @@
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class that contain Simulation methods.
@@ -14,11 +16,11 @@ public class Simulation {
      * @param fileName path followed with file name.
      * @return a List of items from txt file.
      */
-    public ArrayList<Item> loadItems(String fileName) {
-        ArrayList<Item> items = new ArrayList<>();
+    public List<Item> loadItems(String fileName) {
+        List<Item> items = new ArrayList<>();
 
         try {
-            ArrayList<String> fileList = (ArrayList<String>) Files.readAllLines(Paths.get(fileName), Charset.defaultCharset());
+            List<String> fileList = Files.readAllLines(new File(fileName).toPath(), Charset.defaultCharset());
             for (String item : fileList) {
                 items.add(new Item(item.split("=")[0], Integer.parseInt(item.split("=")[1])));
             }
@@ -34,7 +36,7 @@ public class Simulation {
      * @param items that can be carry by rocket.
      * @return a list of Rocket invested.
      */
-    public ArrayList<Rocket> loadU1(ArrayList<Item> items) {
+    public List<Rocket> loadU1(List<Item> items) {
         U1 rocket = new U1();
         return getRocketList(rocket, items);
     }
@@ -45,8 +47,8 @@ public class Simulation {
      * @param items list that have been carry.
      * @return a List of rocket filled out.
      */
-    private ArrayList<Rocket> getRocketList(Rocket rocket, ArrayList<Item> items) {
-        ArrayList<Rocket> rocketList = new ArrayList<>();
+    private List<Rocket> getRocketList(Rocket rocket, List<Item> items) {
+        List<Rocket> rocketList = new ArrayList<>();
         for (Item item : items) {
             if (rocket.canCarry(item)) {
                 rocket.carry(item);
@@ -57,7 +59,6 @@ public class Simulation {
                 } else {
                     rocket = new U2();
                 }
-//                rocket = rocket.getClass() == U1.class ? new U1() : new U2;
                 rocket.carry(item);
             }
         }
@@ -69,7 +70,7 @@ public class Simulation {
      * @param items that can be carry by rocket.
      * @return a list of Rocket invested.
      */
-    public ArrayList<Rocket> loadU2(ArrayList<Item> items) {
+    public List<Rocket> loadU2(List<Item> items) {
         U2 rocket = new U2();
         return getRocketList(rocket, items);
     }
@@ -79,7 +80,7 @@ public class Simulation {
      * @param rockets list that contains all rockets.
      * @return total of cost of the simulation
      */
-    public int runSimulator(ArrayList<Rocket> rockets) {
+    public int runSimulator(List<Rocket> rockets) {
         int cost = 0;
         for (Rocket rocket : rockets) {
             while (rocket.launch() || rocket.land()) {
