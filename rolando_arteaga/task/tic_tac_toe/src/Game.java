@@ -1,4 +1,4 @@
-public class Game {
+public final class Game {
     private final Reader console;
     private final Player playerBlue;
     private final Player playerGreen;
@@ -10,7 +10,6 @@ public class Game {
         playerGreen.setName(console.getPlayerName(playerGreen));
         this.playerBlue = playerBlue;
         this.playerGreen = playerGreen;
-        this.startGame();
     }
 
     public void getPointPlayer(Player p) {
@@ -22,7 +21,7 @@ public class Game {
         }
     }
 
-    public void startGame() {
+    public String startGame() {
         boardGame = new Board();
         boardGame.paintBoard(playerBlue, playerGreen);
         for (int i = 0; boardGame.hasWinner() == null; i++) {
@@ -40,5 +39,6 @@ public class Game {
         if (console.restart()) {
             this.startGame();
         }
+        return winner;
     }
 }

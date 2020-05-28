@@ -8,6 +8,10 @@ public class Board {
         this.board = new String[3][3];
     }
 
+    public String[][] getBoard() {
+        return board;
+    }
+
     public boolean markBoard(Player player, Point point) {
         try {
             if (board[point.getX() - 1][point.getY() - 1] == null) {
