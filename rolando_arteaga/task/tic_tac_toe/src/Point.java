@@ -1,4 +1,6 @@
+
 public class Point {
+
     private final int x;
     private final int y;
 
@@ -8,15 +10,14 @@ public class Point {
     }
 
     public static Point createPoint(String coordinate) {
-        String[] data = coordinate.split(":");
         try {
+            String[] data = coordinate.split(":");
             int coordX = Integer.parseInt(data[0]);
             int coordY = Integer.parseInt(data[1]);
             return new Point(coordX, coordY);
         } catch (Exception e) {
             return null;
         }
-
     }
 
     public int getX() {
