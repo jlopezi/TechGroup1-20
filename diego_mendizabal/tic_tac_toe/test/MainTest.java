@@ -229,7 +229,7 @@ class MainTest {
         main.playerMove('0',2, board);
         main.playerMove('0',5, board);
         main.playerMove('0',8, board);
-        assertTrue(main.evaluator(board), "review evaluator at positions 1,4,7");
+        assertTrue(main.evaluator(board), "review evaluator at positions 2,5,8");
     }
 
     /**
@@ -241,7 +241,7 @@ class MainTest {
         main.playerMove('0',3, board);
         main.playerMove('0',6, board);
         main.playerMove('0',9, board);
-        assertTrue(main.evaluator(board), "review evaluator at positions 1,4,7");
+        assertTrue(main.evaluator(board), "review evaluator at positions 3,6,9");
     }
 
     /**
@@ -265,7 +265,7 @@ class MainTest {
         main.playerMove('0',4, board);
         main.playerMove('0',5, board);
         main.playerMove('0',6, board);
-        assertTrue(main.evaluator(board), "review evaluator at positions 1,2,3");
+        assertTrue(main.evaluator(board), "review evaluator at positions 4,5,6");
     }
     /**
      * evaluates if the game is over at win for Row line
@@ -276,6 +276,6 @@ class MainTest {
         main.playerMove('0',7, board);
         main.playerMove('0',8, board);
         main.playerMove('0',9, board);
-        assertTrue(main.evaluator(board), "review evaluator at positions 1,2,3");
+        assertTrue(main.evaluator(board), "review evaluator at positions 7,8,9");
     }
 }
