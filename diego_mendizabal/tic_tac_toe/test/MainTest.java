@@ -171,8 +171,29 @@ class MainTest {
     @Test
     void insertCharacterAtPosition() {
         char [][] board = main.generateBoard();
-        main.insertCharacterAtPosition('X', board,2,2);
+        main.insertCharacterAtPosition('X', board,2,2, false);
         assertEquals(board[2][2], 'X', "values was not inserted");
+    }
+
+    /**
+     * Verifies insert a character at certain position that is already taken
+     */
+    @Test
+    void insertCharacterAtTakenPositionPosition() {
+        char [][] board = main.generateBoard();
+        main.insertCharacterAtPosition('X', board,2,2, false);
+        main.insertCharacterAtPosition('O', board,2,2, true);
+        assertEquals(board[2][2], 'X', "values O was inserted");
+    }
+
+    /**
+     * Verifies insert a character at invalid position in the board
+     */
+    @Test
+    void insertCharacterAtInvalidPosition() {
+        char [][] board = main.generateBoard();
+        main.insertCharacterAtPosition('X', board,0,1, true);
+        assertEquals(board[0][1], '|', "values was not inserted");
     }
 
     /**
@@ -191,7 +212,7 @@ class MainTest {
      * evaluates if the game is over at win for Column line
      */
     @Test
-    void evaluatorColumn() {
+    void evaluatorWinFirstColumn() {
         char [][] board = main.generateBoard();
         main.playerMove('0',1, board);
         main.playerMove('0',4, board);
@@ -200,10 +221,34 @@ class MainTest {
     }
 
     /**
+     * evaluates if the game is over at win for Column line
+     */
+    @Test
+    void evaluatorWinSecondColumn() {
+        char [][] board = main.generateBoard();
+        main.playerMove('0',2, board);
+        main.playerMove('0',5, board);
+        main.playerMove('0',8, board);
+        assertTrue(main.evaluator(board), "review evaluator at positions 1,4,7");
+    }
+
+    /**
+     * evaluates if the game is over at win for Column line
+     */
+    @Test
+    void evaluatorWinThirdColumn() {
+        char [][] board = main.generateBoard();
+        main.playerMove('0',3, board);
+        main.playerMove('0',6, board);
+        main.playerMove('0',9, board);
+        assertTrue(main.evaluator(board), "review evaluator at positions 1,4,7");
+    }
+
+    /**
      * evaluates if the game is over at win for Row line
      */
     @Test
-    void evaluatorRow() {
+    void evaluatorWinFirstRow() {
         char [][] board = main.generateBoard();
         main.playerMove('0',1, board);
         main.playerMove('0',2, board);
@@ -211,4 +256,26 @@ class MainTest {
         assertTrue(main.evaluator(board), "review evaluator at positions 1,2,3");
     }
 
+    /**
+     * evaluates if the game is over at win for Row line
+     */
+    @Test
+    void evaluatorWinSecondRow() {
+        char [][] board = main.generateBoard();
+        main.playerMove('0',4, board);
+        main.playerMove('0',5, board);
+        main.playerMove('0',6, board);
+        assertTrue(main.evaluator(board), "review evaluator at positions 1,2,3");
+    }
+    /**
+     * evaluates if the game is over at win for Row line
+     */
+    @Test
+    void evaluatorWinThirdRow() {
+        char [][] board = main.generateBoard();
+        main.playerMove('0',7, board);
+        main.playerMove('0',8, board);
+        main.playerMove('0',9, board);
+        assertTrue(main.evaluator(board), "review evaluator at positions 1,2,3");
+    }
 }

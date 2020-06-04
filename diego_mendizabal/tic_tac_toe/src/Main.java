@@ -116,14 +116,15 @@ public class Main {
     }
 
     // Insert a character in the board at specific position
-    public static void insertCharacterAtPosition(char playerSymbol, char[][] board, int posFil, int posCol){
+    public static void insertCharacterAtPosition(char playerSymbol, char[][] board, int posFil, int posCol
+            , boolean test){
         if (board[posFil][posCol] == ' ') {
             board[posFil][posCol] = playerSymbol;
         } else {
             System.out.println("invalid position try again");
-            if (playerSymbol == 'X'){
+            if (playerSymbol == 'X' && !test){
                 playerOneMove(board);
-            } else {
+            } else if(!test) {
                 playerTwoMove(board);
             }
         }
@@ -133,31 +134,31 @@ public class Main {
     public static void playerMove(char playerSymbol, int position, char[][] board) {
         switch(position) {
             case 1:
-                insertCharacterAtPosition(playerSymbol, board, 0,0);
+                insertCharacterAtPosition(playerSymbol, board, 0,0, false);
                 break;
             case 2:
-                insertCharacterAtPosition(playerSymbol, board, 0,2);
+                insertCharacterAtPosition(playerSymbol, board, 0,2, false);
                 break;
             case 3:
-                insertCharacterAtPosition(playerSymbol, board, 0,4);
+                insertCharacterAtPosition(playerSymbol, board, 0,4, false);
                 break;
             case 4:
-                insertCharacterAtPosition(playerSymbol, board, 2,0);
+                insertCharacterAtPosition(playerSymbol, board, 2,0, false);
                 break;
             case 5:
-                insertCharacterAtPosition(playerSymbol, board, 2,2);
+                insertCharacterAtPosition(playerSymbol, board, 2,2, false);
                 break;
             case 6:
-                insertCharacterAtPosition(playerSymbol, board, 2,4);
+                insertCharacterAtPosition(playerSymbol, board, 2,4, false);
                 break;
             case 7:
-                insertCharacterAtPosition(playerSymbol, board, 4,0);
+                insertCharacterAtPosition(playerSymbol, board, 4,0, false);
                 break;
             case 8:
-                insertCharacterAtPosition(playerSymbol, board, 4,2);
+                insertCharacterAtPosition(playerSymbol, board, 4,2, false);
                 break;
             case 9:
-                insertCharacterAtPosition(playerSymbol, board, 4,4);
+                insertCharacterAtPosition(playerSymbol, board, 4,4, false);
                 break;
             default:
                 System.out.println("invalid position try again");
