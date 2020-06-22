@@ -22,24 +22,29 @@ public class TicTacToe {
     return true;
   }
 
+  public Player playerMove() {
+    if(player1.attempts == player2.attempts) {
+      return player1;
+    } else {
+      return player2;
+    }
+  }
+
   public void playGame() {
     System.out.println("X will play first. Enter a slot number to place X in:");
     System.out.println("O will play second.");
     board.printBoard();
     Scanner input = new Scanner(System.in);
+    Player currentPlayer;
     while(!board.isCompleteBoard()){
       try {
         int slotNumber = input.nextInt();
         char value = Integer.toString(slotNumber).charAt(0);
         if(!board.isMarked(value)) {
           if(validateValue(slotNumber)) {
-            if(player1.attempts == player2.attempts) {
-              board.markBoard(value, player1.card);
-              player1.setAttempts(player1.attempts-1);
-            } else {
-              board.markBoard(value, player2.card);
-              player2.setAttempts(player2.attempts-1);
-            }
+            currentPlayer = playerMove();
+            board.markBoard(value, currentPlayer.card);
+            currentPlayer.setAttempts(currentPlayer.attempts-1);
             board.printBoard();
           }
         } else {

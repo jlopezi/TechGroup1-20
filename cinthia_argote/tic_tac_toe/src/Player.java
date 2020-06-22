@@ -12,4 +12,8 @@ public class Player {
   public void setAttempts(int attempts) {
     this.attempts = attempts;
   }
+
+  public int getAttempts() {
+    return attempts;
+  }
 }
